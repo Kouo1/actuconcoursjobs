@@ -1,0 +1,94 @@
+/* Forms -----------------------------------------------------------
+---------------------------- */
+fieldset {
+    padding: 10px;
+    border: 1px #0568CD solid;
+    /*margin: 10px;*/
+    margin: 0 auto;
+    width: 80%;
+}
+legend {
+    font-weight: bold;
+    color: #0568CD;
+}
+
+.texteCommentaire textarea{
+    border: 1px #999 solid;
+    height: 100px;
+    width:80%;
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 1rem;
+    
+}
+
+/*debut Formulaire multipage*/
+main{
+    width: 80%;
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 5px;/*Arrondir les angles */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/*#bodyAnnonce input{
+    display: block;/* Pour  mettre les inputs en dessous*/
+  /*  width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;/*Arrondir les angles *//*
+}*/
+/*On masque toutes les pages */
+.page{
+    display: none;
+}
+header{
+    display: flex; /*pour aligner les numeros de lignes */
+    justify-content: space-between;
+}
+.page-num{
+    border: 1px solid blue;
+    border-radius: 50%;/*pour bien arrondir : affice le rond*/ 
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+}
+.active{
+    color: white;
+    background-color: blue;
+}
+/*End Formulaire multipage*/
+
+
+/*Adapter le site au format mobile en utilisant les medias query*/
+@media screen and (max-width:640px){
+
+    #bodyConnexion{
+        width:300px;
+       display : flex; /*flex  permet à  élément flexible à modifier ses dimensions afin de remplir l'espace disponible de son conteneur*/
+    }
+    #bodyConnexion h1{
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 10px;
+    }
+
+    #bodyRegister{
+      /*  width:300px;*/
+        margin-top:10%;
+    }
+/*form select#selectMultiple {
+    height: 35px;
+}*/
+}

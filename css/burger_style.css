@@ -1,0 +1,264 @@
+/* Fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');/*on importe la police sur google font*/
+
+/*variables*/
+:root{
+    --font-size:1rem
+}
+.light-mode{
+    --navbar-color:#222; /* couleur noir pour le texte*/
+    --navbar-bg-color:#F0F0F0; /* Background color en gris*/
+}
+
+.dark-mode{
+    --navbar-color:#FFF; /* couleur blanc pour le texte*/
+    --navbar-bg-color:#000; /* Background color en noir profond*/
+}
+
+/*Reset*/
+* {
+    box-sizing: border-box;
+   /* margin: 0;*/
+  /*  padding: 0;  /*empeche l'adaptation sur mobile*/
+    outline: none;
+}
+ul {
+    list-style: none;
+}
+
+/*Basic style*/
+body {
+    font-size:var(--font-size);
+   /* font-family: 'Poppins', sans-serif;*/
+   font-family: 'Dosis', sans-serif;
+
+}
+.main-content
+    {
+padding:1rem;/*Mettre les marges*/
+}
+
+.navbar_logo{
+    color:blue;
+}
+
+/*navbar*/
+.navbar {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:65px;
+    padding:10px;
+    color:var(--navbar-color);
+    background:var(--navbar-bg-color);
+
+}
+
+.navbar_links {
+    display:flex;  /*pour aligner les elements du menu*/
+    
+}
+
+.navbar_link { 
+    padding:0 10px; /*Faire des spaces a gauche et a droite*/
+    
+}
+.navbar_link > a { 
+    text-decoration:none;
+    color: var(--navbar-color); /*La meme couleur que la navbar*/
+    
+}
+
+
+.burger{
+    display:none;   /*ca colle le menu a droite*/
+}
+
+.navbar_link .submenu /* cacher le sous menu*/
+{
+    display: none;
+}
+/*.navbar_link:hover > a::after*/
+/*.navbar_link li:hover .submenu*/
+.navbar_link:hover .submenu /*au passage de la souris 12 42*/
+{
+ display: inline-block;
+ position: absolute;
+ /*top: 100%;
+ left: 0px;
+ padding: 0px;*/
+ z-index: 1;
+    background-color: #e5e8fa;
+}
+.submenu li
+{
+    border-bottom: 5px solid #ccc;
+}
+.submenu li a
+{
+    padding: 15px 30px;
+    font-size: 20px;
+    color: #222538;
+/*    width: 270px;*/
+}
+.navbar_link .submenu
+{
+    background-color: rgb(230,100,40);
+}
+.submenu li:hover a
+{
+    color: rgb(143, 31, 31);
+    font-weight: bold;
+}
+
+
+/*Small devices*/
+
+@media screen and (max-width:767.98px){
+    .navbar_links {
+        display:flex;
+        flex-direction:column;/*afficher verticalement*/
+        width:0;/*on donne la largeur 0 au menu*/
+       /* height:calc(100vh - 65px); wait*/
+       /* height: auto; wait*/
+          height:0.1;/*on cache la hauteur pour optimiser*/
+        position:absolute; /*wait*/
+       /* position:fixed;*/
+        position:fixed;
+        top: 65px;
+        right: 0;
+        background: var(--navbar-bg-color);
+        transition: all .5s ease-in-out;
+        z-index: 1;/*Mettre le menu en premier plan added*/
+    }
+    /*afficher le menu suite a un click */
+    .show-nav .navbar_links{ /*classe parent de navbar_links */
+        width: 100%;
+        height: auto;/*on donne la hauteur sur a un clic pour optimiser*/
+        position:absolute;
+    }   
+    .navbar_link { 
+       transform: translateX(101%);
+      /* text-transform: uppercase;*/
+
+    }
+
+    .show-nav .navbar_link {
+        transform: translateX(0);
+
+    }
+    .navbar_link > a { /*space between links */
+        display:block;
+        padding:1rem;
+        font-size:1.6rem;
+        transition:all .4s ease-in-out; /*effet in out du lien */
+
+    }
+    .navbar_link > a:hover { /*space between links */
+        padding-left:2rem;
+        letter-spacing:5px;
+
+    }
+    /*toggle menu*/
+    .burger {
+        display:block;
+        position:relative;
+        padding:0;
+        width:45px;
+        height:45px;
+        border:none;
+        background:transparent;
+        cursor:pointer;
+    }
+      /*barre du milieur*/
+    .bar{
+        display:block;
+        width:45px;
+        height:4px;
+        background:var(--navbar-color);
+        border-radius:3px;
+        transition: all .5s ease-in-out;
+    }
+    /*Faire disparaitre la barre de milieu apres un click*/
+    .show-nav .bar {
+        width: 0;
+        background: transparent;
+    }
+/* Afficher les bars*/
+    .bar::before, .bar::after{
+        content:"";
+        width: 45px;
+        height: 4px;
+        position:absolute;
+        left:0;
+        background:var(--navbar-color);
+        border-radius:3px;
+        transition: all .5s ease-in-out;
+    }
+
+    .bar::before{
+        transform: translateY(-12px);/*mettre au dessus du premier*/
+        }
+    .bar::after{
+        transform: translateY(12px); /*mettre en dessou du premier*/
+     }
+   .show-nav .bar::before {
+       transform: rotate(45deg);
+   }
+   .show-nav .bar::after {
+    transform: rotate(-45deg);
+}
+
+/*mobile - animations*/
+.show-nav .first {
+    transition: all 1s ease-out;
+}
+.show-nav .second {
+    transition: all 1.1s ease-out;
+}
+.show-nav .third {
+    transition: all 1.2s ease-out;
+}
+.show-nav .fourth {
+    transition: all 1.3s ease-out;
+}
+.show-nav .fifth {
+    transition: all 1.4s ease-out;
+}
+
+.navbar_link:hover .submenu /*au passage de la souris 12 42*/
+{
+ position: relative;
+}
+
+}
+      
+
+      
+
+/*medium devices*/
+@media screen and (min-width:768px){
+    .navbar_link > a::after{
+        display:block;
+        content:"";
+        width:0;
+        height:1px;
+        background:var(--navbar-color);
+        transition:width .4s;
+    }
+    .navbar_link:hover > a::after{ /*au passage de la souris 12 42*/
+        width:100%;
+
+    }
+
+}
+
+
+/* 
+changer la forme du lien actif*/
+.navbar li .active
+{
+    border-bottom: 1px solid rgb(204, 44, 44);
+    background-color: rgb(204, 44, 44);
+}
+
